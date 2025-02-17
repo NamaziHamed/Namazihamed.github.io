@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-
+import TimerContext from '../context/timerContext'
 
 class Clock extends Component {
-
+    static contextType= TimerContext
     render() { 
         return (
-            <h1>00 : 00</h1>
+            <h1>{this.context.pomodoroTimer}</h1>
         );
     }
 }
