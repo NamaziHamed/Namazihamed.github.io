@@ -6,11 +6,9 @@ class IntervalControllers extends Component {
   render() {
     return (
       <div className="container justify-content-between">
-        <div className="row">
           <button id="pomodoro" onClick={this.context.handleBtnClick} className="btn col">Pomodoro</button>
           <button id="short-break" onClick={this.context.handleBtnClick} className="btn col">Short Break</button>
           <button id="long-break" onClick={this.context.handleBtnClick} className="btn col">Long Break</button>
-        </div>
       </div>
     );
   }

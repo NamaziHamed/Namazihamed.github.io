@@ -13,47 +13,74 @@ class App extends Component {
     remainingTime: Duration.fromObject({ minutes: 25 }),
     pomodoroCount: 0,
     currentStatus: "stop",
+    currentTimer: "pomodoro",
   };
 
-  componentDidMount (){
-    this.applyBtnStyle()
+  componentDidMount() {
+    this.applyBtnStyle();
   }
 
-  applyBtnStyle = ()=>{
-    const buttons = document.querySelectorAll("button")
-
-    buttons.forEach(btn=>{
-      btn.classList.add("btn-outline-dark")
-      btn.classList.add("mx-1")
-      btn.classList.add("my-3")
-    })
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.currentTimer !== this.state.currentTimer) {
+      this.applyBtnStyle();
+    }
   }
+
+  applyBtnStyle = () => {
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach((btn) => {
+      btn.className = "btn mx-1 my-3"
+      if (btn.id === this.state.currentTimer) {
+        btn.classList.add("btn-dark");
+
+      } else {
+        btn.classList.add("btn-outline-dark");
+      }
+    });
+  };
+
   handleBtnClick = (event) => {
     const eventType = event.target.id;
+    let min
     switch (eventType) {
       case "pomodoro": {
-        this.updateRemainingTime(this.state.pomodoroTimer);
+        min = this.state.pomodoroTimer;
+        this.setState({ currentTimer: "pomodoro" });
         break;
       }
       case "short-break": {
-        this.updateRemainingTime(this.state.shortBreak);
+        min = this.state.shortBreak;
+        this.setState({ currentTimer: "short-break" });
         break;
       }
       case "long-break": {
-        this.updateRemainingTime(this.state.longBreak);
+        min = this.state.longBreak;
+        this.setState({ currentTimer: "long-break" });
         break;
       }
       case "start": {
         this.interval = setInterval(this.reduceRemainingTime, 1000);
-        this.setState({currentStatus:"start"})
-        return
+        this.setState({ currentStatus: "start" });
+        return;
       }
-      case "pause": {
-      }
-      case "reset": {
-      }
+    case "pause": {
+      min = this.remainingTime
+      clearInterval(this.interval);
+      this.setState({ currentStatus: "pause" });
+      return;
+    }
+    case "reset": {
+      clearInterval(this.interval);
+      this.setState({ currentStatus: "stop", remainingTime: Duration.fromObject({ minutes: this.state.pomodoroTimer }) });
+      return
     }
   };
+  if (min !== undefined){
+    this.updateRemainingTime(min)
+  }
+  this.updateRemainingTime(min)
+}
 
   reduceRemainingTime = () => {
     this.setState((prevState) => {

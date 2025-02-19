@@ -41,18 +41,18 @@ class InitiatorBtn extends Component {
               Start
             </button>
           </div>
-          <div style={this.handleDisplay()} className="row">
+          <div style={this.handleDisplay()}>
             <button
               id="pause"
               onClick={this.context.handleBtnClick}
-              className="btn col-4"
+              className="btn"
             >
               Pause
             </button>
             <button
               id="reset"
               onClick={this.context.handleBtnClick}
-              className="btn  col-4"
+              className="btn"
             >
               Reset
             </button>
