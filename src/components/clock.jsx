@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
-import TimerContext from '../context/timerContext'
+import React, { Component } from "react";
+import TimerContext from "../context/timerContext";
+import { DateTime, Duration } from "luxon";
 
 class Clock extends Component {
-    static contextType= TimerContext
-    render() { 
-        return (
-            <h1>{this.context.pomodoroTimer}</h1>
-        );
-    }
+  static contextType = TimerContext;
+
+  render() {
+    return (
+    <h1>{this.context.remainingTime.toFormat("mm:ss")}</h1>
+);
+  }
 }
- 
+
 export default Clock;
