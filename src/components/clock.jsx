@@ -7,7 +7,7 @@ class Clock extends Component {
 
   render() {
     return (
-    <h1>{this.context.remainingTime.toFormat("mm:ss")}</h1>
+      <h1 className="text-center">{this.context.remainingTime.toFormat("mm:ss")}</h1>
 );
   }
 }
