@@ -4,27 +4,38 @@ import timerContext from "../context/timerContext";
 class InitiatorBtn extends Component {
   static contextType = timerContext;
 
-  handleDisplay = () => {
+  handleDisplay = (type) => {
     if (this.context.currentStatus === "stop") {
       return {
-        display: "none",
+        display: type === "start" ? "block" : "none",
       };
     } else {
       return {
-        display: "block",
+        display: type === "start" ? "none" : "block",
       };
     }
   };
 
-  handleStart = () => {
-    if (this.context.currentStatus === "stop") {
-      return {
-        display: "block",
-      };
+  handleText = (type) => {
+    const text = this.context.currentStatus;
+    const status = this.context.currentTimer;
+    if (status === "pomodoro") {
+      if (text === "start") {
+        return type === "id" ? "pause" : "Pause";
+      } else if (text === "pause") {
+        return type === "id" ? "resume" : "Resume";
+      }
     } else {
-      return {
-        display: "none",
-      };
+        return type === "id" ? "skip-break" : "Skip Break";
+    }
+  };
+
+  handleId = () => {
+    const text = this.context.currentStatus;
+    if (text === "start") {
+      return "pause";
+    } else {
+      return "resume";
     }
   };
 
@@ -32,7 +43,7 @@ class InitiatorBtn extends Component {
     return (
       <div className="container text-center justify-content-between">
         <div className="row text-center ">
-          <div className="col" style={this.handleStart()}>
+          <div className="col" style={this.handleDisplay("start")}>
             <button
               id="start"
               onClick={this.context.handleBtnClick}
@@ -41,13 +52,13 @@ class InitiatorBtn extends Component {
               Start
             </button>
           </div>
-          <div style={this.handleDisplay()}>
+          <div style={this.handleDisplay("resume")}>
             <button
-              id="pause"
+              id={this.handleText("id")}
               onClick={this.context.handleBtnClick}
               className="btn"
             >
-              Pause
+              {this.handleText("text")}
             </button>
             <button
               id="reset"
