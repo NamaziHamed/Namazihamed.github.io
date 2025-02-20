@@ -31,11 +31,21 @@ class App extends Component {
 
   componentDidMount() {
     this.applyBtnStyle();
+    this.setState({ remainingTime: Duration.fromObject({ minutes: this.state.pomodoroTimer }) });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.currentTimer !== this.state.currentTimer) {
       this.applyBtnStyle();
+    }
+
+    if (this.state.currentStatus === "start" && prevState.currentStatus !== "start") {
+      clearInterval(this.interval);
+      this.interval = setInterval(this.reduceRemainingTime, 1000);
+    }
+
+    if (this.state.currentStatus !== "start" && prevState.currentStatus === "start") {
+      clearInterval(this.interval);
     }
   }
 
@@ -73,46 +83,36 @@ class App extends Component {
         break;
       }
       case "start": {
-        this.interval = setInterval(this.reduceRemainingTime, 1000);
         this.setState({ currentStatus: "start" });
-        this.timerStartSound()
+        this.timerStartSound();
         return;
       }
       case "pause": {
-        clearInterval(this.interval);
         this.setState({ currentStatus: "pause" });
         return;
       }
-      case "skip-break": {
-        min = this.state.pomodoroTimer;
-        clearInterval(this.interval);
-        this.setState(
-          {
-            currentStatus: "start",
-            currentTimer: "pomodoro",
-            remainingTime: Duration.fromObject({ minutes: min }),
-          },
-          () => {
-            this.interval = setInterval(this.reduceRemainingTime, 1000);
-            this.timerStartSound()
-          }
-        );
-        return;
-      }
       case "resume": {
-        this.interval = setInterval(this.reduceRemainingTime, 1000);
         this.setState({ currentStatus: "start" });
-        this.timerStartSound()
+        this.timerStartSound();
         return;
       }
       case "reset": {
-        clearInterval(this.interval);
         this.setState({
           currentStatus: "stop",
           remainingTime: Duration.fromObject({
             minutes: this.state.pomodoroTimer,
           }),
         });
+        return;
+      }
+      case "skip-break": {
+        min = this.state.pomodoroTimer;
+        this.setState({
+          currentStatus: "start",
+          currentTimer: "pomodoro",
+          remainingTime: Duration.fromObject({ minutes: min }),
+        });
+        this.timerStartSound();
         return;
       }
       default:
@@ -132,19 +132,23 @@ class App extends Component {
 
       if (newRemainingTime.as("seconds") <= 0) {
         this.timerEndSound();
-        clearInterval(this.interval);
 
         if (prevState.currentTimer === "pomodoro") {
+          const newPomodoroCount = prevState.pomodoroCount + 1;
+          const nextTimerType = newPomodoroCount % 4 === 0 ? "long-break" : "short-break";
+          const nextDuration = newPomodoroCount % 4 === 0 ? this.state.longBreak : this.state.shortBreak;
+
           return {
-            remainingTime: Duration.fromObject({ minutes: 0, seconds: 0 }),
-            pomodoroCount: prevState.pomodoroCount + 1,
-            currentStatus: "stop",
+            pomodoroCount: newPomodoroCount,
+            currentTimer: nextTimerType,
+            remainingTime: Duration.fromObject({ minutes: nextDuration }),
+            currentStatus: "start", // Automatically start the next timer
           };
         } else {
-          this.playEndSound()
           return {
-            remainingTime: Duration.fromObject({ minutes: 0, seconds: 0 }),
-            currentStatus: "nstop",
+            currentTimer: "pomodoro",
+            remainingTime: Duration.fromObject({ minutes: this.state.pomodoroTimer }),
+            currentStatus: "start", // Automatically start the next Pomodoro
           };
         }
       }
