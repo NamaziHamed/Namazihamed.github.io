@@ -76,7 +76,7 @@ class App extends Component {
       this.setState({ remainingTime: Duration.fromObject({ minutes: time }) });
     }
   }
-  
+
   applyBtnStyle = () => {
     const buttons = document.querySelectorAll("button");
 
@@ -168,9 +168,9 @@ class App extends Component {
         if (prevState.currentTimer === "pomodoro") {
           const newPomodoroCount = prevState.pomodoroCount + 1;
           const nextTimerType =
-            newPomodoroCount % 4 === 0 ? "long-break" : "short-break";
+            prevState.pomodoroCount % 4 === 0 ? "long-break" : "short-break";
           const nextDuration =
-            newPomodoroCount % 4 === 0
+            prevState.pomodoroCount % 4 === 0
               ? this.state.longBreak
               : this.state.shortBreak;
 
