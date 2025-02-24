@@ -7,6 +7,7 @@ import InitiatorBtn from "./components/initiatorBtn";
 import PomodoroCountDisplay from "./components/pomodoroCountDisplay";
 import startSound from "./assets/sounds/start.mp3";
 import endSound from "./assets/sounds/end.mp3";
+import NavBar from "./components/navbar";
 
 class App extends Component {
   state = {
@@ -31,7 +32,9 @@ class App extends Component {
 
   componentDidMount() {
     this.applyBtnStyle();
-    this.setState({ remainingTime: Duration.fromObject({ minutes: this.state.pomodoroTimer }) });
+    this.setState({
+      remainingTime: Duration.fromObject({ minutes: this.state.pomodoroTimer }),
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -39,16 +42,41 @@ class App extends Component {
       this.applyBtnStyle();
     }
 
-    if (this.state.currentStatus === "start" && prevState.currentStatus !== "start") {
+    if (
+      this.state.currentStatus === "start" &&
+      prevState.currentStatus !== "start"
+    ) {
       clearInterval(this.interval);
       this.interval = setInterval(this.reduceRemainingTime, 1000);
     }
 
-    if (this.state.currentStatus !== "start" && prevState.currentStatus === "start") {
+    if (
+      this.state.currentStatus !== "start" &&
+      prevState.currentStatus === "start"
+    ) {
       clearInterval(this.interval);
     }
+    if (
+      prevState.pomodoroTimer !== this.state.pomodoroTimer ||
+      prevState.shortBreak !== this.state.shortBreak ||
+      prevState.longBreak !== this.state.longBreak
+    ) {
+      let time;
+      switch (this.state.currentTimer) {
+        case "pomodoro":
+          time = this.state.pomodoroTimer;
+          break;
+        case "short-break":
+          time = this.state.shortBreak;
+          break;
+        case "long-break":
+          time = this.state.longBreak;
+          break;
+      }
+      this.setState({ remainingTime: Duration.fromObject({ minutes: time }) });
+    }
   }
-
+  
   applyBtnStyle = () => {
     const buttons = document.querySelectorAll("button");
 
@@ -126,6 +154,10 @@ class App extends Component {
     this.applyBtnStyle();
   };
 
+  updateContext = (pomodoroTimer, shortBreak, longBreak) => {
+    this.setState({ pomodoroTimer, shortBreak, longBreak });
+  };
+
   reduceRemainingTime = () => {
     this.setState((prevState) => {
       const newRemainingTime = prevState.remainingTime.minus({ seconds: 1 });
@@ -135,8 +167,12 @@ class App extends Component {
 
         if (prevState.currentTimer === "pomodoro") {
           const newPomodoroCount = prevState.pomodoroCount + 1;
-          const nextTimerType = newPomodoroCount % 4 === 0 ? "long-break" : "short-break";
-          const nextDuration = newPomodoroCount % 4 === 0 ? this.state.longBreak : this.state.shortBreak;
+          const nextTimerType =
+            newPomodoroCount % 4 === 0 ? "long-break" : "short-break";
+          const nextDuration =
+            newPomodoroCount % 4 === 0
+              ? this.state.longBreak
+              : this.state.shortBreak;
 
           return {
             pomodoroCount: newPomodoroCount,
@@ -147,7 +183,9 @@ class App extends Component {
         } else {
           return {
             currentTimer: "pomodoro",
-            remainingTime: Duration.fromObject({ minutes: this.state.pomodoroTimer }),
+            remainingTime: Duration.fromObject({
+              minutes: this.state.pomodoroTimer,
+            }),
             currentStatus: "start", // Automatically start the next Pomodoro
           };
         }
@@ -173,9 +211,11 @@ class App extends Component {
           currentStatus: this.state.currentStatus,
           currentTimer: this.state.currentTimer,
           handleBtnClick: this.handleBtnClick,
+          updateContext: this.updateContext,
         }}
       >
         <div className="container pomodoro-section">
+          <NavBar />
           <IntervalControllers />
           <Clock />
           <InitiatorBtn />
