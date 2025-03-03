@@ -4,9 +4,12 @@
     margin: 0;
     padding: 0;
 }
+html{
+    font-size: 20px;
+}
 
 body{
-    font-size: 20px;
+    font-size: 1rem;
 }
 
 #root{
@@ -20,7 +23,9 @@ body{
     display: grid;
     grid-template-columns: 1fr 8fr 4fr;
 }
-
+.info-container h1 , .info-container h2{
+    padding-bottom: 8px;
+}
 .flex-center{
     display: flex;
     flex-direction: column;
@@ -36,7 +41,7 @@ img{
 .icon-ref{
     text-decoration: none;
     color: black;
-    font-size: 22px;
+    font-size: 1.1rem;
 }
 
 .link-btn{
