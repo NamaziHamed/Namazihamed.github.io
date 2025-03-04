@@ -6,8 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className="row align-items-center justify-content-center">
-      <App />
-    </div>
+    <App />
   </StrictMode>
 );

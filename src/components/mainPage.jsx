@@ -49,8 +49,7 @@ class MainPage extends Component {
               Bootstrap and React to create responsive and dynamic user
               interfaces.
             </p>
-            <div className="text-sm-center text-md-center m-3">
-              {" "}
+            <div className=" text-center text-md-start text-lg-start m-3">
               <button className="btn element " href="">
                 Learn More
               </button>
@@ -63,24 +62,6 @@ class MainPage extends Component {
         </div>
       </div>
 
-      // <div className="info-container">
-      //   <div id="socialmedia-container" className="flex-center">
-
-      //   </div>
-      //   <div className="flex-center">
-      //     <h1>I'am Hamed Namazi</h1>
-      //     <h2>Web Developer</h2>
-      //     <p>
-      //       Specializing in frontend development. I'm proficient in HTML, CSS,
-      //       and JavaScript, and I have experience working with Bootstrap and
-      //       React to create responsive and dynamic user interfaces.
-      //     </p>
-      //     <button className="link-btn" href="">Learn More</button>
-      //   </div>
-      //   <div className="img-div flex-center">
-      //     <img className="rounded-img" src={picture} alt="my picture" />
-      //   </div>
-      // </div>
     );
   }
 }

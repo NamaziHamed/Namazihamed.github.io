@@ -17,9 +17,13 @@ class App extends Component {
           theme: this.state.theme,
         }}
       >
-        <div className="flex-center">
-          <Navbar />
-          <MainPage />
+        <div className="outer-app flex-column">
+          <div className="">
+            <Navbar />
+          </div>
+          <div className="">
+            <MainPage />
+          </div>
         </div>
       </ControllerContext.Provider>
     );
