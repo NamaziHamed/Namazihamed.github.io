@@ -1,3 +1,62 @@
+/* :root {
+    --main-background: #E0F7FA;
+    --element-background: #FFE0B2;
+    --element-text-color: #37474F;
+    --main-text-color: #FF7043;
+  } */
+
+  /* :root {
+    --main-background: #E3F2FD;
+    --element-background: #FFEBEE;
+    --element-text-color: #424242;
+    --main-text-color: #FF8A65;
+  } */
+  
+  /* :root {
+    --main-background: #E1F5FE;
+    --element-background: #FFF9C4;
+    --element-text-color: #455A64;
+    --main-text-color: #FFB74D;
+  } */
+  
+  /* :root {
+    --main-background: #F1F8E9;
+    --element-background: #EDE7F6;
+    --element-text-color: #37474F;
+    --main-text-color: #7E57C2;
+  } */
+  
+  :root {
+    --main-background: #FFF8E1;
+    --element-background: #B3E5FC;
+    --element-text-color: #616161;
+    --main-text-color: #FF7043;
+  }
+  
+body{
+    font-size: calc(20px+0.1vw);
+    font-family: 'Roboto', sans-serif !important;
+    background: var(--main-background) !important;
+    color: var(--main-text-color) !important;
+}
+
+.img-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 img{
+    
     width: 100%;
+    max-width: 300px;
+    border-radius: 50%;
+}
+
+i{
+    color: var(--element-text-color);
+}
+.element{
+    background-color: var(--element-background) !important;
+    color: var(--element-text-color) !important;
 }
