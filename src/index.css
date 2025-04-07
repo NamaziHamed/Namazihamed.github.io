@@ -2,32 +2,58 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --color-background: 250 250 250;
+  --color-box: 245 245 245;
+  --color-primary: 25 51 102;
+  --color-text: 30 30 30;
+  --color-overlay: 240 240 240;
+}
+
 html.dark {
-  --color-background: 3 7 18;
-  --color-card: 54 54 54;
-  --color-text: 240 240 240;
-  --color-primary: 179 255 0;
-  --color-tag-: 3 3 3;
-  --color-tag-text: 250 250 250;
+  --color-background: 18 28 38;
+  --color-box: 28 38 48;
+  --color-primary: 102 178 255;
+  --color-text: 230 230 230;
+  --color-overlay: 10 10 10;
 }
 
 @layer utilities {
   .bg-body {
     background-color: rgb(var(--color-background));
   }
-  .bg-card {
-    background-color: rgb(var(--color-card));
+  .bg-section {
+    background-color: rgb(var(--color-box));
   }
-  .text-normal-white {
+  .text-normal {
     color: rgb(var(--color-text));
   }
   .color-primary {
     color: rgb(var(--color-primary));
   }
-  .bg-tag {
-    background-color: rgb(var(--color-tag));
+  .bg-primary {
+    background-color: rgb(var(--color-primary));
   }
-  .text-tag {
-    color: rgb(var(--color-tag-text));
+  .border-primary{
+    border: 1px solid var(--color-primary)
+  }
+  .text-overlay {
+    color: rgb(var(--color-overlay));
+  }
+}
+
+html{
+  /* font-family: font-mono; */
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold;
+  }
+  h3{
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold;
+  }
+  p{
+    @apply text-lg
   }
 }
