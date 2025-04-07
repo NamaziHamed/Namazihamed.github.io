@@ -13,7 +13,7 @@ export default function Layout({ title, children }: LayoutProps) {
   return (
     <>
       <main className="flex flex-col gap-20 md:gap-32 overflow-hidden
-      bg-body px-4">
+      bg-body">
         {children}
       </main>
       <Footer />
