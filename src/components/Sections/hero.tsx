@@ -5,7 +5,7 @@ export default function Hero() {
     <section
       className="h-screen sm:p-6 md:p-16 flex flex-col justify-center gap-8
       sm:gap-10
-      bg-section"
+      "
     >
       <p className="text-normal text-xl sm:text-2xl md:text-3xl lg:text-4xl">
         Hello, I'm
@@ -17,7 +17,7 @@ export default function Hero() {
       >
         Hamed Namazi
       </h1>
-      <h3 className="text-normal">Creative and Innovative Web Developer</h3>
+      <h3 className="text-normal font-semibold">Creative and Innovative Web Developer</h3>
       <p className="text-normal pr-10 max-w-3xl">
         Creative and dynamic web developer with strong foundations in full-stack
         development. Skilled in creating visually compelling and highly
