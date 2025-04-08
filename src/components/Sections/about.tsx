@@ -1,11 +1,11 @@
 import portfolioImg from "./../../assets/brand-logo.png";
 import { FacebookIcon, GitHubIcon, InstagramIcon } from "../../utils/cvgs";
 import { profile } from "../../utils/profile";
-import Container from "../shared/container";
-import Paragraph from "../shared/paragraph";
-import SVG from "../shared/svg";
-import Tag from "../shared/tag";
-import SoftTitle from "../shared/SoftTitle";
+import Container from "../shared/utilities/container";
+import Paragraph from "../shared/utilities/paragraph";
+import SVG from "../shared/utilities/svg";
+import Tag from "../shared/utilities/tag";
+import SoftTitle from "../shared/utilities/SoftTitle";
 export default function About() {
   return (
     <Container id="About" className="dark:bg-gray-900 bg-gray-400/10">

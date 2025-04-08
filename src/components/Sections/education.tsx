@@ -1,6 +1,6 @@
 import { profile } from "../../utils/profile";
-import Container from "../shared/container";
-import Card from "../shared/card";
+import Container from "../shared/utilities/container";
+import Card from "../shared/eduCard";
 
 export default function Education() {
   return (
