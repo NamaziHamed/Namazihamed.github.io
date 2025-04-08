@@ -3,9 +3,9 @@ interface NavbarProps {
 }
 export default function Navbar ({toggleDarkMode} : NavbarProps){
     return (
-        <nav className="absolute top-2 right-2 rounded-full
+        <nav className="fixed top-2 right-2 rounded-full z-50
          ">
-            <button onClick={toggleDarkMode} >Dar/light</button>
+            <button onClick={toggleDarkMode} className="text-normal">Dar/light</button>
         </nav>
     )
 }

@@ -3,7 +3,7 @@ import Button from "../shared/button";
 export default function Hero() {
   return (
     <section
-      className="h-screen sm:p-6 md:p-16 flex flex-col justify-center gap-8
+      className="h-screen px-6 md:px-12 lg:px-24 flex flex-col justify-center gap-8
       sm:gap-10
       "
     >
@@ -17,7 +17,9 @@ export default function Hero() {
       >
         Hamed Namazi
       </h1>
-      <h3 className="text-normal font-semibold">Creative and Innovative Web Developer</h3>
+      <h3 className="text-normal font-semibold">
+        Creative and Innovative Web Developer
+      </h3>
       <p className="text-normal pr-10 max-w-3xl">
         Creative and dynamic web developer with strong foundations in full-stack
         development. Skilled in creating visually compelling and highly
@@ -27,13 +29,15 @@ export default function Hero() {
 
       <div className="flex justify-around max-w-sm">
         <Button
+          href="#contact"
           text="Get In Touch"
           className="bg-gradient-to-r from-purple-500 to-blue-500 
         hover:from-purple-600 hover:to-blue-600 text-white"
         />
         <Button
+          href="#projects"
           text="View My Work"
-          className="dark:text-white text-normal bg-section border
+          className="dark:text-white dark:bg-section text-normal bg-blue-100/50 border
           border-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900
           "
         />

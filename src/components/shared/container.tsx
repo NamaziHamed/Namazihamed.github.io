@@ -1,3 +1,5 @@
+import Title from "./title";
+
 interface ContainerProps {
   id: string;
   children: React.ReactNode;
@@ -7,9 +9,11 @@ interface ContainerProps {
 export default function Container({ id, children, className }: ContainerProps) {
   return (
     <section
-      id={id}
-      className={`max-w-full overflow-hidden sm:p-6 md:p-16 relative ${className}`}
+      id={id.toLocaleLowerCase()}
+      className={`max-w-full overflow-hidden p-6 md:p-12
+         lg:p-24 relative ${className}`}
     >
+      <Title>{id}</Title>
       {children}
     </section>
   );
