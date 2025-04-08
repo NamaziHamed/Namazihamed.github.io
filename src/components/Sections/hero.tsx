@@ -17,9 +17,9 @@ export default function Hero() {
       >
         Hamed Namazi
       </h1>
-      <h3 className="text-normal font-semibold">
+      <h2 className="text-normal font-semibold">
         Creative and Innovative Web Developer
-      </h3>
+      </h2>
       <p className="text-normal pr-10 max-w-3xl">
         Creative and dynamic web developer with strong foundations in full-stack
         development. Skilled in creating visually compelling and highly

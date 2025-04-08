@@ -20,9 +20,9 @@ export const profile = {
     "Vue.js",
     "Node.js",
     "Webpack",
+    "VS Code",
     "Git",
     "npm",
-    "VS Code",
   ],
 
   interests: [

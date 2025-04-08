@@ -1,11 +1,11 @@
-import Container from "../shared/container";
+import portfolioImg from "./../../assets/brand-logo.png";
 import { FacebookIcon, GitHubIcon, InstagramIcon } from "../../utils/cvgs";
+import { profile } from "../../utils/profile";
+import Container from "../shared/container";
 import Paragraph from "../shared/paragraph";
 import SVG from "../shared/svg";
-import { profile } from "../../utils/profile";
-import portfolioImg from "./../../assets/brand-logo.png";
 import Tag from "../shared/tag";
-
+import SoftTitle from "../shared/SoftTitle";
 export default function About() {
   return (
     <Container id="About" className="dark:bg-gray-900 bg-gray-400/10">
@@ -53,14 +53,9 @@ export default function About() {
             </Paragraph>
           </div>
 
-          <div className="flex flex-col my-4 md:flex-row md:my-8 justify-between gap-6 md:gap-0">
+          <div className="flex flex-col my-4 md:flex-row md:m-8  justify-between gap-6 md:gap-12">
             <div>
-              <h4
-                className="text-transparent bg-gradient-to-r from-purple-500 to-blue-500
-              w-fit bg-clip-text font-semibold text-xl md:text-2xl lg:text-3xl"
-              >
-                Skills
-              </h4>
+              <SoftTitle>Skills</SoftTitle>
               <div className="flex flex-wrap gap-2 mt-2">
                 {profile.skills.map((skill, key) => (
                   <Tag key={key}>{skill}</Tag>
@@ -68,12 +63,7 @@ export default function About() {
               </div>
             </div>
             <div>
-              <h4
-                className="text-transparent bg-gradient-to-r from-purple-500 to-blue-500
-              w-fit bg-clip-text font-semibold text-xl md:text-2xl lg:text-3xl"
-              >
-                Interests
-              </h4>
+              <SoftTitle>Interests</SoftTitle>
               <div className="flex flex-wrap gap-2 mt-2">
                 {profile.interests.map((interest, key) => (
                   <Tag key={key}>{interest}</Tag>
