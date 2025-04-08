@@ -4,6 +4,7 @@ export const profile = {
   name: "Hamed Namazi",
   title: "Creative and Innovative Web Developer",
   email: "h.namazi91@gmail.com",
+  mobile: "+989145823427",
   location: "Tabriz, Iran",
   facebook: "facebook.com/",
   github: "github.com/namazihamed",

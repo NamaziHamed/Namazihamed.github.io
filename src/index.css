@@ -46,6 +46,11 @@ html{
   p{
     @apply text-lg
   }
+  input , textarea{
+    border: 1px solid var(--color-blue-500);
+    @apply rounded-2xl p-2
+  }
+
 }
 
 
