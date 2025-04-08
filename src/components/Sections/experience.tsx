@@ -6,7 +6,7 @@ import { profile } from "../../utils/profile";
 export default function Experience() {
   return (
     <Container id="Experience">
-      <ul className="flex items-center flex-col gap-10 mt-20">
+      <ul className="grid items-center frid-cols-1 gap-10 mt-20">
         {profile.experience.map((exp, key) => (
           <ExpCard
             key={key}

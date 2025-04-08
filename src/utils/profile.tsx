@@ -1,3 +1,5 @@
+
+
 export const profile = {
   name: "Hamed Namazi",
   title: "Creative and Innovative Web Developer",
@@ -110,14 +112,7 @@ export const profile = {
   ],
 
   projects: [
-    {
-      title: "Github Random Repository Searcher",
-      description:
-        "Developed a GitHub Random Repository Searcher application utilizing RESTful API integration with JavaScript to fetch and display repository details dynamically.",
-      technologies: ["JavaScript", "RESTful API", "Frontend Development"],
-      demoUrl: "https://github.com/hamednamazi/random-repo-app",
-      codeUrl: "https://github.com/hamednamazi/random-repo-app",
-    },
+
     {
       title: "Reddit Client",
       description:
@@ -130,7 +125,17 @@ export const profile = {
         "API Integration",
       ],
       demoUrl: "https://github.com/hamednamazi/reddit-app",
-      codeUrl: "https://github.com/hamednamazi/reddit-app",
+      codeUrl: "https://github.com/NamaziHamed/github-repo-search",
+      thumbnail: "https://i.ibb.co/kVGGSpsJ/New-Project-1.jpg"
+    },
+    {
+      title: "Github Random Repository Searcher",
+      description:
+        "Developed a GitHub Random Repository Searcher application utilizing RESTful API integration with JavaScript to fetch and display repository details dynamically.",
+      technologies: ["JavaScript", "RESTful API", "Frontend Development"],
+      demoUrl: "https://github.com/hamednamazi/random-repo-app",
+      codeUrl: "https://github.com/NamaziHamed/github-repo-search",
+      thumbnail: "https://i.ibb.co/0y5CSV9M/New-Project.jpg"
     },
   ],
 };

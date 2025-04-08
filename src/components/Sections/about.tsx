@@ -1,5 +1,5 @@
 import portfolioImg from "./../../assets/brand-logo.png";
-import { FacebookIcon, GitHubIcon, InstagramIcon } from "../../utils/cvgs";
+import { FacebookIcon, GitHubIcon, InstagramIcon } from "../../utils/svgs";
 import { profile } from "../../utils/profile";
 import Container from "../shared/utilities/container";
 import Paragraph from "../shared/utilities/paragraph";
