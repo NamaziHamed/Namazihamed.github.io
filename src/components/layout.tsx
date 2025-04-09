@@ -7,13 +7,17 @@ interface LayoutProps {
 }
 
 export default function Layout({ title, children }: LayoutProps) {
+
+
   useEffect(() => {
     document.title = title;
   }, [title]);
   return (
     <>
-      <main className="flex flex-col gap-20 md:gap-32 overflow-hidden
-      bg-body">
+      <main
+        className="flex flex-col gap-20 md:gap-32 overflow-hidden
+      bg-body"
+      >
         {children}
       </main>
       <Footer />
