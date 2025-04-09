@@ -2,7 +2,7 @@ import Button from "../shared/utilities/button";
 
 export default function Hero() {
   return (
-    <section
+    <section id="hero"
       className="h-screen px-6 md:px-12 lg:px-24 flex flex-col justify-center gap-8
       sm:gap-10
       "
