@@ -1,6 +1,7 @@
 import Paragraph from "./utilities/paragraph";
 import SoftTitle from "./utilities/SoftTitle";
 import Tag from "./utilities/tag";
+import {motion} from 'framer-motion'
 
 interface CardProps {
   key: number;
@@ -19,9 +20,12 @@ export default function EduCard({
   description,
   subjects,
 }: CardProps) {
-  
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 200 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.8 , delay: 0.5 * key }}
       key={key}
       className=" bg-gray-400/10
         p-10 rounded-2xl flex flex-col gap-4"
@@ -35,6 +39,6 @@ export default function EduCard({
           <Tag key={k}>{skill}</Tag>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

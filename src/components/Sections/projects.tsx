@@ -1,11 +1,11 @@
 import { profile } from "../../utils/profile";
 import ProjectCard from "../shared/projectCard";
-
+import { easeOut, motion } from "framer-motion";
 import Container from "../shared/utilities/container";
 
 export default function Projects() {
   return (
-    <Container id="Projects">
+    <Container id="Projects" className="max-w-screen">
       <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
       gap-4 mt-12 md:mt-20 overflow-hidden"
@@ -22,7 +22,12 @@ export default function Projects() {
           />
         ))}
       </div>
-      <div className="flex justify-center items-center">
+      <motion.div 
+      initial={{opacity:0}}
+      whileInView={{opacity:1}}
+      viewport={{once:true}}
+      transition={{duration:0.7,delay:0.5}}
+      className="flex justify-center items-center">
         <a
           href="#"
           className="font-semibold dark:text-white hover:bg-blue-900
@@ -32,7 +37,7 @@ export default function Projects() {
         >
           View More Projects
         </a>
-      </div>
+      </motion.div>
     </Container>
   );
 }

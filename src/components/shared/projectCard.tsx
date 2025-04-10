@@ -2,6 +2,7 @@ import { ExternalLinkIcon, GitHubIcon } from "../../utils/svgs";
 import Paragraph from "./utilities/paragraph";
 import SoftTitle from "./utilities/SoftTitle";
 import Tag from "./utilities/tag";
+import {motion} from 'framer-motion'
 
 interface projectCardProps {
   title: string;
@@ -23,7 +24,11 @@ export default function ProjectCard({
   key,
 }: projectCardProps) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.8 , delay: 0.5 * key }}
       key={key}
       className=" bg-gray-400/10
         p-10 rounded-2xl flex flex-col gap-4 justify-between"
@@ -60,6 +65,6 @@ export default function ProjectCard({
           <GitHubIcon className="h-10 w-10 text-blue-500 inline pl-2" />
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 }

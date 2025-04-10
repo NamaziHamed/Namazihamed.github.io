@@ -2,6 +2,7 @@ import AchievementsList from "./utilities/achievementsList";
 import Paragraph from "./utilities/paragraph";
 import SoftTitle from "./utilities/SoftTitle";
 import Tag from "./utilities/tag";
+import {easeOut, motion} from 'framer-motion'
 
 interface CardProps {
   key: number;
@@ -23,7 +24,11 @@ export default function ExpCard({
   technologies,
 }: CardProps) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, x: 100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.8 , delay: 0.7 * key , ease:easeOut }}
       key={key}
       className="bg-gray-400/10 
         p-10 rounded-2xl flex flex-col gap-4"
@@ -42,6 +47,6 @@ export default function ExpCard({
           <Tag key={k}>{skill}</Tag>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

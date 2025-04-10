@@ -7,10 +7,11 @@ import { FacebookIcon } from "../../utils/svgs";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
+import SocialMediaIcons from "../shared/utilities/socialMediaIcons";
 
 interface NavbarProps {
   toggleDarkMode: () => void;
-  toggleMenu?: () => void;
+  toggleMenu: () => void;
   isOpen: boolean;
 }
 export default function Navbar({
@@ -64,21 +65,11 @@ export default function Navbar({
         <div className="flex flex-col items-center justify-center space-y-5 mb-8 lg:mb-16">
           {["About", "Education", "Experience", "Projects", "Contact"].map(
             (name, key) => (
-              <NavItem key={key} name={name} />
+              <NavItem key={key} name={name} onClick={toggleMenu} />
             )
           )}
         </div>
-        <div className="flex justify-center items-center py-6  gap-6">
-          <SVG href={profile.github}>
-            <GitHubIcon className="w-6 h-6 dark:text-white hover:text-blue-500" />
-          </SVG>
-          <SVG href={profile.facebook}>
-            <FacebookIcon className="w-6 h-6 dark:text-white border-1 rounded hover:text-blue-500" />
-          </SVG>
-          <SVG href={profile.instagram}>
-            <InstagramIcon className="w-6 h-6 dark:text-white hover:text-blue-500" />
-          </SVG>
-        </div>
+        <SocialMediaIcons />
         <button
           className="fixed z-45 bottom-6 text-normal
             transition-all duration-300

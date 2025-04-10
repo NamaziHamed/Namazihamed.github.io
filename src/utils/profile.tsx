@@ -6,9 +6,9 @@ export const profile = {
   email: "h.namazi91@gmail.com",
   mobile: "+989145823427",
   location: "Tabriz, Iran",
-  facebook: "facebook.com/",
-  github: "github.com/namazihamed",
-  instagram: "instagram.com/hamednamazi",
+  facebook: "https://www.facebook.com/",
+  github: "https://www.github.com/namazihamed",
+  instagram: "https://www.instagram.com/hamednamazi",
   summary:
     "Creative and dynamic web developer with strong foundations in full-stack development. Skilled in creating visually compelling and highly functional web applications using HTML, CSS, JavaScript, React.js, Angular, and Node.js.",
 

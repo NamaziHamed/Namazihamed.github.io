@@ -1,11 +1,12 @@
 import portfolioImg from "./../../assets/brand-logo.png";
-import { FacebookIcon, GitHubIcon, InstagramIcon } from "../../utils/svgs";
 import { profile } from "../../utils/profile";
 import Container from "../shared/utilities/container";
 import Paragraph from "../shared/utilities/paragraph";
-import SVG from "../shared/utilities/svg";
 import Tag from "../shared/utilities/tag";
 import SoftTitle from "../shared/utilities/SoftTitle";
+import { motion } from "framer-motion";
+import SocialMediaIcons from "../shared/utilities/socialMediaIcons";
+
 export default function About() {
   return (
     <Container id="About" className="dark:bg-gray-900 bg-gray-400/10">
@@ -13,7 +14,13 @@ export default function About() {
         className="flex flex-col md:flex-row justify-between items-center
       "
       >
-        <div className="flex flex-col w-full h-full">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col w-full h-full"
+        >
           <div
             className="mx-auto py-12 lg:py-20 rounded-xl
           object-fit w-full h-full lg:max-w-xl
@@ -22,21 +29,17 @@ export default function About() {
             <img src={portfolioImg} alt="Personal Image" />
           </div>
 
-          <div className="flex justify-center gap-4 py-3 md:py-6 lg:py-10">
-            <SVG href={profile.instagram}>
-              <InstagramIcon className="h-10 w-10" />
-            </SVG>
-            <SVG href={profile.github}>
-              <GitHubIcon className="h-10 w-10" />
-            </SVG>
-            <SVG href={profile.facebook}>
-              <FacebookIcon className="h-10 w-10 border-1 rounded-lg" />
-            </SVG>
-          </div>
-        </div>
+          <SocialMediaIcons></SocialMediaIcons>
+        </motion.div>
 
-        <div className="px-10">
-          <div className="flex flex-col gap-5">
+        <div className="px-10 relative">
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-5"
+          >
             <Paragraph className="lg:text-2xl">
               I'm a passionate full-stack developer with over 5 years of
               experience building web applications that deliver exceptional user
@@ -44,6 +47,15 @@ export default function About() {
               things work, which quickly evolved into a love for creating
               digital solutions.
             </Paragraph>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-5"
+          >
             <Paragraph className="lg:text-2xl">
               Beyond coding, I'm passionate about exploring cutting-edge web
               technologies, particularly in the realm of front-end performance
@@ -51,26 +63,36 @@ export default function About() {
               techniques and building performant React applications. To
               recharge, I enjoy hiking and exploring nature
             </Paragraph>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col my-4 md:flex-row md:m-8  justify-between gap-6 md:gap-12">
-            <div>
-              <SoftTitle>Skills</SoftTitle>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {profile.skills.map((skill, key) => (
-                  <Tag key={key}>{skill}</Tag>
-                ))}
-              </div>
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col my-4 md:flex-row md:m-8  justify-between gap-6 md:gap-12"
+          >
+            <SoftTitle>Skills</SoftTitle>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {profile.skills.map((skill, key) => (
+                <Tag key={key}>{skill}</Tag>
+              ))}
             </div>
-            <div>
-              <SoftTitle>Interests</SoftTitle>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {profile.interests.map((interest, key) => (
-                  <Tag key={key}>{interest}</Tag>
-                ))}
-              </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex flex-col my-4 md:flex-row md:m-8  justify-between gap-6 md:gap-12"
+          >
+            <SoftTitle>Interests</SoftTitle>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {profile.interests.map((interest, key) => (
+                <Tag key={key}>{interest}</Tag>
+              ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </Container>
