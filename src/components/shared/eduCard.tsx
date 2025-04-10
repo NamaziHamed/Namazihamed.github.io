@@ -19,11 +19,12 @@ export default function EduCard({
   description,
   subjects,
 }: CardProps) {
+  
   return (
     <div
       key={key}
-      className="dark:bg-gray-900 bg-gray-400/10
-        p-10 rounded-2xl m-6 md:m-10 lg:m-16 flex flex-col gap-4"
+      className=" bg-gray-400/10
+        p-10 rounded-2xl flex flex-col gap-4"
     >
       <SoftTitle>{degree}</SoftTitle>
       <Paragraph className="text-sm ">{period}</Paragraph>

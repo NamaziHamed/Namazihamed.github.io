@@ -15,7 +15,7 @@ export default function Layout({ title, children }: LayoutProps) {
   return (
     <>
       <main
-        className="flex flex-col gap-20 md:gap-32 overflow-hidden
+        className="flex flex-col overflow-hidden
       bg-body"
       >
         {children}

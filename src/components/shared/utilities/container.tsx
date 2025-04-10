@@ -10,8 +10,8 @@ export default function Container({ id, children, className }: ContainerProps) {
   return (
     <section
       id={id.toLocaleLowerCase()}
-      className={`max-w-full overflow-hidden p-6 md:p-12
-         lg:p-24 relative ${className}`}
+      className={`max-w-full overflow-hidden p-4 md:p-8
+         lg:p-12 relative ${className}`}
     >
       <Title>{id}</Title>
       {children}

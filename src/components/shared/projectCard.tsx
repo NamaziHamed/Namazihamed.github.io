@@ -25,7 +25,7 @@ export default function ProjectCard({
   return (
     <div
       key={key}
-      className="dark:bg-gray-900 bg-gray-400/10
+      className=" bg-gray-400/10
         p-10 rounded-2xl flex flex-col gap-4 justify-between"
     >
       <div className=" max-w-xl max-h-xl aspect-square relative overflow-hidden ">
@@ -36,7 +36,7 @@ export default function ProjectCard({
         />
       </div>
       <SoftTitle>{title}</SoftTitle>
-      <Paragraph className="lg:text-sm">{description}</Paragraph>
+      <Paragraph className="text-sm">{description}</Paragraph>
       <div className="flex gap-2 mx-auto mt-5 flex-wrap">
         {technologies.map((skill, k) => (
           <Tag key={k}>{skill}</Tag>

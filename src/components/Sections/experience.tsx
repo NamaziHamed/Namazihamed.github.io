@@ -5,8 +5,9 @@ import { profile } from "../../utils/profile";
 
 export default function Experience() {
   return (
-    <Container id="Experience">
-      <ul className="grid items-center frid-cols-1 gap-10 mt-20">
+    <Container id="Experience" className="dark:bg-gray-900
+    bg-gray-400/10">
+      <ul className="grid items-center frid-cols-1 gap-8 md:gap-5 mt-5 md:mt-10">
         {profile.experience.map((exp, key) => (
           <ExpCard
             key={key}
