@@ -17,7 +17,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="flex flex-col w-full h-full"
         >
@@ -36,7 +36,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="flex flex-col gap-5"
           >
@@ -52,7 +52,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="flex flex-col gap-5"
           >
@@ -68,7 +68,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="flex flex-col my-4 md:flex-row md:m-8  justify-between gap-6 md:gap-12"
           >
@@ -82,7 +82,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="flex flex-col my-4 md:flex-row md:m-8  justify-between gap-6 md:gap-12"
           >

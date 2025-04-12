@@ -12,7 +12,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, delay:0.3, ease: easeInOut }}
           className="grid grid-cols-1 gap-2 items-center justify-around pr-10"
         >
@@ -30,7 +30,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 200 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 1, ease: easeInOut }}
         >
           <ContactForm />

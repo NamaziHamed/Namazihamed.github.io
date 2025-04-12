@@ -1,13 +1,8 @@
 import NavItem from "../shared/navItem";
-import { profile } from "../../utils/profile";
-import SVG from "../shared/utilities/svg";
-import { GitHubIcon } from "../../utils/svgs";
-import { InstagramIcon } from "../../utils/svgs";
-import { FacebookIcon } from "../../utils/svgs";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
 import SocialMediaIcons from "../shared/utilities/socialMediaIcons";
+import useThemeStore from "../../store/store";
 
 interface NavbarProps {
   toggleDarkMode: () => void;
@@ -19,16 +14,9 @@ export default function Navbar({
   toggleMenu,
   isOpen,
 }: NavbarProps) {
-  const [isLightMode, setIsLightMode] = useState(true);
 
-  const handleMode = () => {
-    toggleMode();
-    toggleDarkMode();
-  };
+  const isDarkMode = useThemeStore(state=>(state.darkMode));
 
-  const toggleMode = () => {
-    setIsLightMode(!isLightMode);
-  };
 
   return (
     <>
@@ -55,32 +43,37 @@ export default function Navbar({
         ></span>
       </button>
 
-      <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        animate={isOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="fixed top-0 right-0 w-screen h-screen overflow-hidden md:w-1/4 lg:w-1/5 dark:bg-gray-900/70 bg-gray-400/10   rounded-l-xl flex items-center flex-col justify-center gap-5 z-40"
-      >
-        <div className="flex flex-col items-center justify-center space-y-5 mb-8 lg:mb-16">
-          {["About", "Education", "Experience", "Projects", "Contact"].map(
-            (name, key) => (
-              <NavItem key={key} name={name} onClick={toggleMenu} />
-            )
-          )}
-        </div>
-        <SocialMediaIcons />
-        <button
-          className="fixed z-45 bottom-6 text-normal
-            transition-all duration-300
-            hover:text-blue-500
-             hover:scale-125 "
-          onClick={() => handleMode()}
-        >
-          {isLightMode && <MdLightMode className="w-12 h-12"></MdLightMode>}
-          {!isLightMode && <MdDarkMode className="w-12 h-12"></MdDarkMode>}
-        </button>
-      </motion.div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{ duration: 0.7 }}
+            className="fixed top-0 right-0 w-screen h-screen overflow-hidden md:w-1/4 lg:w-1/5 dark:bg-gray-900/70 bg-gray-400/10   rounded-l-xl flex items-center flex-col justify-center gap-5 z-40"
+          >
+            <div className="flex flex-col items-center justify-center space-y-5 mb-8 lg:mb-16">
+              {["About", "Education", "Experience", "Projects", "Contact"].map(
+                (name, key) => (
+                  <NavItem key={key} name={name} onClick={toggleMenu} />
+                )
+              )}
+            </div>
+            <SocialMediaIcons />
+            <button
+              className="fixed z-45 bottom-6 text-normal
+        transition-all duration-300
+        hover:text-blue-500
+         hover:scale-125 "
+              onClick={() => toggleDarkMode()}
+            >
+              {isDarkMode && <MdLightMode className="w-12 h-12"></MdLightMode>}
+              {!isDarkMode && <MdDarkMode className="w-12 h-12"></MdDarkMode>}
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

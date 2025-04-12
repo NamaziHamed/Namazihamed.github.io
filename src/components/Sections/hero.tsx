@@ -40,11 +40,10 @@ export default function Hero() {
         <h2 className="text-normal font-semibold">
           Creative and Innovative Web Developer
         </h2>
-        <p className="text-normal pr-10 max-w-3xl">
-          Creative and dynamic web developer with strong foundations in
-          full-stack development. Skilled in creating visually compelling and
-          highly functional web applications using HTML, CSS, JavaScript,
-          React.js, Angular, and Node.js.
+        <p className="text-normal pr-10 max-w-3xl text-pretty">
+          Building the web's future, one line of code at a time. I deliver
+          cutting-edge full-stack solutions with React.js and Node.js, focused
+          on performance and innovation.
         </p>
       </motion.div>
       <motion.div
