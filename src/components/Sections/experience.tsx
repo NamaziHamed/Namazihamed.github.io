@@ -11,7 +11,7 @@ export default function Experience() {
       <motion.div
       initial={{opacity:0,x:200}}
       whileInView={{opacity:1,x:0}}
-      viewport={{once:false}}
+      viewport={{once:true}}
       transition={{duration:0.8,delay:0.2,ease:easeInOut}}
        className="grid items-center frid-cols-1 gap-8 md:gap-5 mt-5 md:mt-10">
         {profile.experience.map((exp, key) => (

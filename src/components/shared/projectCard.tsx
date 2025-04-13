@@ -1,7 +1,9 @@
-import { ExternalLinkIcon, GitHubIcon } from "../../utils/svgs";
+
 import Paragraph from "./utilities/paragraph";
 import SoftTitle from "./utilities/SoftTitle";
 import Tag from "./utilities/tag";
+import { FaGithub } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import {motion} from 'framer-motion'
 
 interface projectCardProps {
@@ -25,19 +27,23 @@ export default function ProjectCard({
 }: projectCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -100 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 , delay: 0.5 * key }}
       key={key}
       className=" bg-gray-400/10
-        p-10 rounded-2xl flex flex-col gap-4 justify-between"
+        p-10 rounded-2xl flex flex-col gap-4 justify-between hover:scale-105 transition duration-300"
     >
       <div className=" max-w-xl max-h-xl aspect-square relative overflow-hidden ">
-        <img
+        <motion.img
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1}}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2 , delay: 0.8 * key }}
           src={thumbnail}
           alt={`${title} project's thumbnail`}
-          className="w-full h-full object-fit"
+          className="w-full h-full object-fit hover:scale-125 transition duration-300"
         />
       </div>
       <SoftTitle>{title}</SoftTitle>
@@ -54,7 +60,7 @@ export default function ProjectCard({
     bg-clip-text text-transparent w-fit hover:-translate-y-0.5 hover:scale-105 transition-all duration-300"
         >
           Live Demo
-          <ExternalLinkIcon className="h-10 w-10 text-blue-500 inline pl-2" />
+          <FaExternalLinkAlt className="h-9 w-9 text-blue-500 inline pl-2" />
         </a>
         <a
           href={codeUrl}
@@ -62,7 +68,7 @@ export default function ProjectCard({
     bg-clip-text text-transparent w-fit hover:-translate-y-0.5 hover:scale-105 transition-all duration-300"
         >
           Code
-          <GitHubIcon className="h-10 w-10 text-blue-500 inline pl-2" />
+          <FaGithub className="h-10 w-10 text-blue-500 inline pl-2" />
         </a>
       </div>
     </motion.div>

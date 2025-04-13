@@ -63,7 +63,7 @@ export default function Hero() {
           href="#projects"
           text="View My Work"
           className="dark:text-white dark:bg-section text-normal bg-blue-100/50 border
-          border-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900
+          border-blue-500 hover:bg-blue-600 dark:hover:bg-blue-600
           "
         />
       </motion.div>

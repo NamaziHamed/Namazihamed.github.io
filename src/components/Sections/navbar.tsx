@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
 import SocialMediaIcons from "../shared/utilities/socialMediaIcons";
 import useThemeStore from "../../store/store";
+import { IoIosMoon } from "react-icons/io";
 
 interface NavbarProps {
   toggleDarkMode: () => void;
@@ -69,7 +70,7 @@ export default function Navbar({
               onClick={() => toggleDarkMode()}
             >
               {isDarkMode && <MdLightMode className="w-12 h-12"></MdLightMode>}
-              {!isDarkMode && <MdDarkMode className="w-12 h-12"></MdDarkMode>}
+              {!isDarkMode && <IoIosMoon className="w-12 h-12"/>}
             </button>
           </motion.div>
         )}

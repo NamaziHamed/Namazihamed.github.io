@@ -105,7 +105,7 @@ export default function ContactForm() {
       <button
         type="submit"
         onClick={handleSubmit}
-        className="font-semibold dark:text-white hover:bg-blue-900
+        className="font-semibold dark:text-white hover:bg-blue-600
         px-10 py-5 rounded-lg transition-all duration-300 text-center
         hover:shadow-2xl shadow-blue-500/20 hover:scale-105 
         dark:bg-section bg-blue-100 border-blue-500 border-1 mt-5"
