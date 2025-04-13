@@ -1,6 +1,6 @@
 import { profile } from "../../utils/profile";
 import ProjectCard from "../shared/projectCard";
-import { easeOut, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 import Container from "../shared/utilities/container";
 
 export default function Projects() {

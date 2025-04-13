@@ -1,5 +1,4 @@
 import Paragraph from "../shared/utilities/paragraph";
-import Rocket from "../../assets/rocket_1159293.png";
 import SocialMediaIcons from "../shared/utilities/socialMediaIcons";
 import { BsRocketFill } from "react-icons/bs";
 

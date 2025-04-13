@@ -1,6 +1,6 @@
 import NavItem from "../shared/navItem";
 import { motion, AnimatePresence } from "framer-motion";
-import { MdLightMode, MdDarkMode } from "react-icons/md";
+import { MdLightMode } from "react-icons/md";
 import SocialMediaIcons from "../shared/utilities/socialMediaIcons";
 import useThemeStore from "../../store/store";
 import { IoIosMoon } from "react-icons/io";
