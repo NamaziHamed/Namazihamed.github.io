@@ -1,6 +1,7 @@
 import Paragraph from "../shared/utilities/paragraph";
 import Rocket from "../../assets/rocket_1159293.png";
 import SocialMediaIcons from "../shared/utilities/socialMediaIcons";
+import { BsRocketFill } from "react-icons/bs";
 
 export default function Footer() {
   const handleBeam = () => {
@@ -31,10 +32,10 @@ export default function Footer() {
       </Paragraph>
       <div className="flex items-center justify-center py-5">
         <button className="text-sm" title="Beam me UP!!!" onClick={handleBeam}>
-          <img
-            src={Rocket}
-            alt="rocket img"
-            className="w-10 h-10 hover:scale-110 hover:-translate-y-1 transition-all duration-300"
+          <BsRocketFill
+            className="w-8 h-8 hover:scale-110 hover:-translate-y-1 
+            transition-all duration-300  hover:text-blue-600
+           "
           />
         </button>
       </div>
