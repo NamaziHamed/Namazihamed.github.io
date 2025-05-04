@@ -1,4 +1,4 @@
-import portfolioImg from "./../../assets/brand-logo.png";
+import portfolioImg from "./../../assets/ggg.jpg";
 import { profile } from "../../utils/profile";
 import Container from "../shared/utilities/container";
 import Paragraph from "../shared/utilities/paragraph";
@@ -11,7 +11,7 @@ export default function About() {
   return (
     <Container id="About" className="dark:bg-gray-900 bg-gray-400/10">
       <div
-        className="flex flex-col md:flex-row justify-between items-center
+        className="flex flex-col md:flex-row justify-between lg:items-center
       "
       >
         <motion.div
@@ -22,11 +22,11 @@ export default function About() {
           className="flex flex-col w-full h-full"
         >
           <div
-            className="mx-auto py-12 lg:py-20 rounded-xl
+            className="px-20 sm:px-30 md:px-0 py-12 lg:py-20 rounded-xl
           object-fit w-full h-full lg:max-w-xl
         "
           >
-            <img src={portfolioImg} alt="Personal Image" />
+            <img src={portfolioImg} alt="Personal Image" className="rounded-full"/>
           </div>
 
           <SocialMediaIcons></SocialMediaIcons>
