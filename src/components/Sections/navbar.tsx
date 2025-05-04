@@ -52,7 +52,7 @@ export default function Navbar({
             viewport={{ once: true }}
             exit={{ opacity: 0, x: 100 }}
             transition={{ duration: 0.7 }}
-            className="fixed top-0 right-0 w-screen h-screen overflow-hidden md:w-1/4 lg:w-1/5 dark:bg-gray-900/70 bg-gray-400/10   rounded-l-xl flex items-center flex-col justify-center gap-5 z-40"
+            className="fixed top-0 right-0 w-screen h-screen overflow-hidden md:w-1/4 lg:w-1/5 dark:bg-gray-900/80 bg-gray-400/80   rounded-l-xl flex items-center flex-col justify-center gap-5 z-40"
           >
             <div className="flex flex-col items-center justify-center space-y-5 mb-8 lg:mb-16">
               {["About", "Education", "Experience", "Projects", "Contact"].map(
