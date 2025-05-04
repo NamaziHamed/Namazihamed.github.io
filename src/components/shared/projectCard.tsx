@@ -55,6 +55,7 @@ export default function ProjectCard({
       </div>
       <div className="flex gap-3 mt-5">
         <a
+        target="_blank"
           href={demoUrl}
           className="bg-gradient-to-r from-purple-500 to-blue-500
     bg-clip-text text-transparent w-fit hover:-translate-y-0.5 hover:scale-105 transition-all duration-300"
@@ -64,6 +65,7 @@ export default function ProjectCard({
         </a>
         <a
           href={codeUrl}
+          target="_blank"
           className="bg-gradient-to-r from-purple-500 to-blue-500
     bg-clip-text text-transparent w-fit hover:-translate-y-0.5 hover:scale-105 transition-all duration-300"
         >
